@@ -1,7 +1,7 @@
 # CODSOFT
 Welcome to my CodSoft Projects Repository! 🚀
 
-This repository serves as a showcase of the Java development projects I've undertaken during my internship at CodSoft. As I embark on this coding journey, I've been exploring a variety of projects to enhance my programming skills and practical knowledge.
+This repository serves as a showcase of the Java development projects I've undertaken during my internship at CodSoft. As I embark on this coding journey, I'm actively working on the first project listed below, while the rest are yet to be completed:
 
 Table of Contents:
 
