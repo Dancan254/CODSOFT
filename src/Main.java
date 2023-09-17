@@ -19,7 +19,7 @@ public class Main {
         int score = 0;
         boolean playAgain;
 
-        System.out.println("Caution the game has a maximum of 10 attempts!!!");
+        System.out.println("Caution the game has a maximum of " + maxAttempts + " attempts!!!");
 
         do{
             //random number between 1 and 100
@@ -59,7 +59,7 @@ public class Main {
        return scanner.nextInt();
     }
 
-    //method to generate random number
+    //method to generate random number, returns the number
     public static int generateRandomNumber(int min, int max){
         //determine the boundaries
         return random.nextInt(max - min) + min;
