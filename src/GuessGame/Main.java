@@ -19,22 +19,28 @@ public class Main {
     public static void guessGame() {
 
         int score = 0;
-        boolean playAgain;
+        //boolean playAgain;
 
         System.out.println("Caution the game has a maximum of " + maxAttempts + " attempts!!!");
 
         do{
             //random number between 1 and 100
             int randomNumber = generateRandomNumber(1, 101);
+            System.out.println(randomNumber);
             int trials = 0;
-
+            long startTime = System.currentTimeMillis();
             while (trials <= maxAttempts) {
                 trials++;
 
                 int guessedNumber = guessNumber();
                 //compare user guess with the random number, determine if low, equal or higher
                 if (guessedNumber == randomNumber) {
+
+                    long endTime = System.currentTimeMillis();
+                    long duration = endTime - startTime;
+
                     System.out.println("Congratulation you got it!");
+                    System.out.println("Total time taken: " + duration);
                     score++;
                     break;
                 } else if (guessedNumber < randomNumber) {
@@ -48,10 +54,13 @@ public class Main {
 
             //ask if the player wants to play again
             System.out.println("Do you want to give it another attempt? (yes/no)");
-            String userAnswer = scanner.next().toLowerCase();
-            playAgain = userAnswer.equals("yes");
+            String playAgain = scanner.next().toLowerCase();
+            if (!playAgain.equals("yes")){
+                System.out.println("Thank you for playing, Final score is = " + score);
+                break;
+            }
 
-        }while (playAgain);
+        }while (true);
 
     }
 
