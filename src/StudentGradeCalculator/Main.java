@@ -59,28 +59,40 @@ public class Main {
 
         if (averageMarks >= 90 && averageMarks <= 100) {
             System.out.println("Scored an A");
+            System.out.println("Excellent, passed with flying colors");
         } else if (averageMarks >= 80 && averageMarks < 90) {
             System.out.println("Scored an A-");
+            System.out.println("Congratulations, but still not yet there");
         } else if (averageMarks >= 70 && averageMarks < 80) {
             System.out.println("Scored a B+");
+            System.out.println("Great, the sky is the limit keep pressing");
         } else if (averageMarks >= 65 && averageMarks < 70) {
             System.out.println("Scored a B");
+            System.out.println("Well done");
         } else if (averageMarks >= 60 && averageMarks < 65) {
             System.out.println("Scored a B-");
+            System.out.println("good, keep soaring");
         } else if (averageMarks >= 55 && averageMarks < 60) {
             System.out.println("Scored a C+");
+            System.out.println("Can do better, aim higher");
         } else if (averageMarks >= 50 && averageMarks < 55) {
             System.out.println("Scored a C");
+            System.out.println("You have potential, average");
         } else if (averageMarks >= 45 && averageMarks < 50) {
             System.out.println("Scored a C-");
+            System.out.println("Put in more effort");
         } else if (averageMarks >= 40 && averageMarks < 45) {
             System.out.println("Scored a D+");
+            System.out.println("Work harder");
         } else if (averageMarks >= 35 && averageMarks < 40) {
             System.out.println("Scored a D");
+            System.out.println("You can do better");
         } else if (averageMarks >= 30 && averageMarks < 35) {
             System.out.println("Scored a D-");
+            System.out.println("Weak but has potential");
         } else if (averageMarks >= 0 && averageMarks < 30) {
             System.out.println("Scored an E");
+            System.out.println("Failed");
         } else {
             System.out.println("Invalid");
         }
