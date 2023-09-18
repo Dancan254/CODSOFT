@@ -2,6 +2,7 @@ package StudentGradeCalculator;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,8 +11,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter the number of subjects: ");
-        int subjectsNum = scanner.nextInt();
+       // System.out.println("Enter the number of subjects: ");
+        int subjectsNum = 0;
+
+        do {
+            System.out.println("Enter the number of subjects: ");
+            subjectsNum = scanner.nextInt();
+
+            if (subjectsNum <= 0) {
+                System.out.println("Number of subjects must be a positive integer.");
+           }
+        } while (subjectsNum <= 0);
+
 
 
         System.out.println("Marks entered are out of 100");
@@ -65,7 +76,7 @@ public class Main {
             System.out.println("Congratulations, but still not yet there");
         } else if (averageMarks >= 70 && averageMarks < 80) {
             System.out.println("Scored a B+");
-            System.out.println("Great, the sky is the limit keep pressing");
+            System.out.println("Great, the sky is not the limit keep pressing");
         } else if (averageMarks >= 65 && averageMarks < 70) {
             System.out.println("Scored a B");
             System.out.println("Well done");
@@ -94,7 +105,7 @@ public class Main {
             System.out.println("Scored an E");
             System.out.println("Failed");
         } else {
-            System.out.println("Invalid");
+            System.out.println("Invalid grade");
         }
 
 
