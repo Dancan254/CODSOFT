@@ -11,7 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         guessGame();
     }
 
@@ -25,7 +24,7 @@ public class Main {
 
         do{
             //random number between 1 and 100
-            int randomNumber = generateRandomNumber(1, 101);
+            int randomNumber = generateRandomNumber(1, 100);
             //System.out.println(randomNumber);
             int trials = 0;
             long startTime = System.currentTimeMillis();
