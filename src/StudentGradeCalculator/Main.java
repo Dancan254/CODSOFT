@@ -1,7 +1,5 @@
 package StudentGradeCalculator;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
