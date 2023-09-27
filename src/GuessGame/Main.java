@@ -1,8 +1,6 @@
 package GuessGame;
 
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     private static Random random = new Random();
@@ -18,21 +16,21 @@ public class Main {
     public static void displayWelcomeMessage() {
 
      System.out.println("""
-             "Welcome to the Guessing Game!"+
-                          "================================"+
-                          "Test your intuition and guessing skills as you try to guess"+
-                          "the hidden number in this exciting game."+
-                          "You'll be challenged to pick the right number within a specified range,"+
-                          "and the clock will be ticking!"+
-                          "Get ready for an adventure of numbers and fun."+
-                          "================================"+
-                          "Rules:"+
-                          "- You'll be asked to choose a difficulty level."+
-                          "- You have a limited number of attempts to guess the correct number."+
-                          "- The game will provide hints to guide your guesses."+
-                          "- Try to guess the number as quickly as possible to earn a higher score."+
-                          "================================"+
-                          "Let's get started! Good luck!")""");
+                                Welcome to the Guessing Game!!!
+                                ================================
+              Test your intuition and guessing skills as you try to guess
+              the hidden number in this exciting game
+              You'll be challenged to pick the right number within a specified range
+              and the clock will be ticking!
+              Get ready for an adventure of numbers and fun.
+                                ================================
+              Rules:
+              - You'll be asked to choose a difficulty level.
+              - You have a limited number of attempts to guess the correct number.
+              - The game will provide hints to guide your guesses.
+              - Try to guess the number as quickly as possible to earn a higher score.
+                                ================================
+              Let's get started! Good luck!)""");
 }
 
     //method for the game
@@ -40,16 +38,21 @@ public class Main {
 
         int score = 0;
         //System.out.println("Guess a number between 1 and " + range);
+
+        List<Integer> guessList = new ArrayList<>();
+
         do{
             int trials = 0;
             int range = difficultyLevel();
             //random number between 1 and given range
             int randomNumber = generateRandomNumber(1, range);
-//            System.out.println(randomNumber);
             long startTime = System.currentTimeMillis();
             while (trials < maxAttempts) {
+                System.out.println("Guessed numbers " + guessList);
                 System.out.println("Number of attempts remaining: " + (maxAttempts - trials));
                 int guessedNumber = guessNumber(range);
+                guessList.add(guessedNumber);
+                trials++;
                 try {
                     //compare user guess with the random number, determine if low, equal or higher
                     if (guessedNumber == randomNumber) {
@@ -65,11 +68,12 @@ public class Main {
                     } else {
                         System.out.println("Too high, Try again");
                     }
-                    trials++;
+
                 }catch (IllegalArgumentException e){
                     System.out.println(e.getMessage());
                 }
             }
+            System.out.println("The correct number was " + randomNumber);
             System.out.println("Your score is: " + score);
             System.out.println("total trials:" + trials);
 
