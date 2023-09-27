@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
     private static final Random random = new Random();
     private static final Scanner scanner = new Scanner(System.in);
-    private static int maxAttempts = 10;
+    private static int maxAttempts;
     private static final List<Integer> guessList = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -64,9 +64,13 @@ public class Main {
             }
 
             System.out.println("The correct number was " + randomNumber);
-            System.out.println("Your score is: " + score);
             System.out.println("Total trials: " + trials);
-
+            if (trials <= 5){
+                System.out.println("Your score is: " + (score * 5));
+            }
+            else {
+                System.out.println("Your score is " + (score * 2));
+            }
             System.out.println("Do you want to give it another attempt? (yes/no)");
             String playAgain = scanner.next().toLowerCase();
             if (!playAgain.equals("yes")) {
@@ -116,21 +120,24 @@ public class Main {
     public static int guessNumber(int range) {
         System.out.println("Guess a number between 1 and " + range);
         int guessedNumber;
-        boolean validInput;
 
-        do {
-            validInput = true;
-            guessedNumber = scanner.nextInt();
+        while (true) {
+            try {
+                guessedNumber = scanner.nextInt();
 
-            if (guessedNumber < 1 || guessedNumber > range) {
-                System.out.println("Out of range. Please enter a number within the given range.");
-                validInput = false;
+                if (guessedNumber < 1 || guessedNumber > range) {
+                    System.out.println("Out of range. Please enter a number within the given range.");
+                } else {
+                    guessList.add(guessedNumber);
+                    return guessedNumber;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.next(); // Clear the invalid input from the scanner
             }
-        } while (!validInput);
-
-        guessList.add(guessedNumber);
-        return guessedNumber;
+        }
     }
+
 
     public static int generateRandomNumber(int min, int max) {
         return random.nextInt(max - min + 1) + min;
