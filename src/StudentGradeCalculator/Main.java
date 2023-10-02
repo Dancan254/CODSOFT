@@ -12,16 +12,6 @@ public class Main {
 
        // System.out.println("Enter the number of subjects: ");
         int subjectsNum = 0;
-//
-//        do {
-//            System.out.println("Enter the number of subjects: ");
-//            subjectsNum = scanner.nextInt();
-//
-//            if (subjectsNum <= 0) {
-//                System.out.println("Number of subjects must be a positive integer.");
-//            }
-//        } while (subjectsNum <= 0);
-
         //implementing try and catch
         while (subjectsNum <= 0) {
             try {
