@@ -33,13 +33,28 @@ public class Main {
         //create an array of marks for each subject
         int[] subjectMarks = new int[subjectsNum];
 
+
         //loop through each subject prompting user to enter marks
         for (int i = 0; i < subjectsNum; i++) {
-            scanner.nextLine();//consume new line
-            System.out.print("Enter subject" + (i + 1) + " name: ");
-            subjects[i] = scanner.nextLine();
-            System.out.print("Enter marks for " + subjects[i] + ":");
-             subjectMarks[i] = scanner.nextInt();
+            scanner.nextLine();//consume new line, since we read an integer first
+            while(true) {
+                    System.out.print("Enter subject" + (i + 1) + " name: ");
+                    subjects[i] = scanner.nextLine();
+                    try {
+                        System.out.print("Enter marks for " + subjects[i] + ":");
+                        subjectMarks[i] = scanner.nextInt();
+
+                        if (subjectMarks[i] >= 0 && subjectMarks[i] <= 100) {
+                            break; // Valid marks, exit the loop
+                        }
+                        else{
+                            System.out.println("Invalid marks try again");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input for marks, try again");
+                        scanner.nextLine();//consume new line character
+                    }
+            }
             //scanner.nextLine();//consume new line
         }
 
